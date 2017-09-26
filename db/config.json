@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "e2e_app",
+    "password": "secret",
+    "database": "e2e_app_development",
+    "host": "localhost"
+  },
+  "test": {
+    "username": "e2e_app",
+    "password": "secret",
+    "database": "e2e_app_test",
+    "host": "localhost"
+  },
+  "staging": {
+    "username": "e2e_app",
+    "password": "secret",
+    "database": "e2e_app_staging",
+    "host": "mongo",
+    "dialect": "mongodb"
+  },
+  "production": {
+    "username": "e2e_app",
+    "password": "secret",
+    "database": "e2e_app_production",
+    "host": "mongo",
+    "dialect": "mongodb"
+  }
+}
