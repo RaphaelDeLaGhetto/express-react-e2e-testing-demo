@@ -40,7 +40,7 @@ To start a Dockerized Mongo container, see above...
 Seed database:
 
 ```
-node seed.js
+node db/seed.js
 ```
 
 Run server:
