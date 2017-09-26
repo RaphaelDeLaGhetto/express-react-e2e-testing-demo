@@ -38,6 +38,7 @@
     "webpack": "^3.6.0"
   },
   "devDependencies": {
-    "jasmine": "^2.8.0"
+    "jasmine": "^2.8.0",
+    "zombie": "^5.0.7"
   }
 }
