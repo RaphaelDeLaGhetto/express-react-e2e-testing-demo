@@ -2,14 +2,15 @@
 
 Express/React demo with Jasmine/Zombie end-to-end tests
 
-# Development
+# Setup
 
 Clone and install dependencies:
 
 ```
-git clone git@libertyseeds.ca:/opt/git/accountant.git
-cd accountant && npm install
+npm install
 ```
+
+# Testing
 
 ## For Docker fans
 
@@ -26,10 +27,26 @@ docker stop dev-mongo
 docker start dev-mongo
 ```
 
+## Execute
+
+```
+npm test
+```
+
+# Development
+
+To start a Dockerized Mongo container, see above...
+
 Seed database:
 
 ```
 node seed.js
+```
+
+Run server:
+
+```
+npm start
 ```
 
 
