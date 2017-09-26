@@ -1,0 +1,28 @@
+{
+  "name": "express-react-e2e-testing-demo",
+  "version": "1.0.0",
+  "description": "An Express/React app with Jasmine and Zombie test demo\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaphaelDeLaGhetto/express-react-e2e-testing-demo.git"
+  },
+  "keywords": [
+    "express",
+    "react",
+    "jasmine",
+    "zombie"
+  ],
+  "author": "Daniel Bidulock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RaphaelDeLaGhetto/express-react-e2e-testing-demo/issues"
+  },
+  "homepage": "https://github.com/RaphaelDeLaGhetto/express-react-e2e-testing-demo#readme",
+  "dependencies": {
+    "express": "^4.15.5"
+  }
+}
