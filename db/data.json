@@ -1,0 +1,16 @@
+{
+  "_dependencies": {
+    "bcrypt": "bcrypt-nodejs"
+  },
+  "agents": {
+    "_model": "Agent",
+    "dan": {
+      "email": "daniel@example.com",
+      "password": "secret"
+    },
+    "darina": {
+      "email": "manuel@example.com",
+      "password": "topsecret"
+    }
+  }
+}
