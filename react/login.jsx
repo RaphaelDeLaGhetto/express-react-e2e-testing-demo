@@ -13,6 +13,7 @@ class Login extends React.Component {
       token: null
     };
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   login(e) {
@@ -39,11 +40,21 @@ class Login extends React.Component {
     });
   }
 
+  logout() {
+    this.setState({ waiting: false, error: null, token: null, message: null }, () => {
+      this.props.onLogin(this.state.token, () => {
+        document.dispatchEvent(doneReact);
+      });
+    });
+  }
+
   render() {
     return <section id='login'>
              {
                this.state.token
-                 ? null
+                 ? <button id='logout-button' onClick={this.logout}>
+                     Logout
+                   </button>
                  : <form onSubmit={this.login}>
                      <div className='form-group'>
                        <label htmlFor='email'>Email:</label>

@@ -28,7 +28,9 @@ class App extends React.Component {
 
 
   setToken(token) {
-
+    this.setState({ token: token }, () => {
+      document.dispatchEvent(doneReact);
+    });
   }
 
   /**
