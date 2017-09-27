@@ -32,7 +32,39 @@ describe('authentication API', () => {
   });
 
   it('sends a 200 response and JWT if provided valid credentials', (done) => {
-    done.fail();
+    let body = JSON.stringify({
+      email: agent.email,
+      password: 'secret'
+    });
+
+    let postOptions = {
+      protocol: 'http:',
+      host: 'localhost',
+      port: PORT,
+      path: '/agent/auth',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(body)
+      }
+    };
+
+    let request = http.request(postOptions, (response) => {
+      let data = '';
+
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      response.on('end', () => {
+        expect(response.statusCode).toEqual(200);
+        expect(JSON.parse(data).token).not.toEqual(null);
+        done();
+      });
+    });
+    request.end(body);
+
+
   });
 
 

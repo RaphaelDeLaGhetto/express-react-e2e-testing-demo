@@ -115,9 +115,9 @@ describe('Agent', () => {
   });
 
   /**
-   * .validPassword
+   * #validPassword
    */
-  describe('.validPassword', () => {
+  describe('#validPassword', () => {
     beforeEach((done) => {
       agent.save().then((obj) => {
         done();
@@ -125,19 +125,19 @@ describe('Agent', () => {
     });
 
     it('returns true if the password is a match', (done) => {
-      //Agent.validPassword('secret', agent.password, function(err, res) {
-      Agent.validPassword('secret', agent.password, (err, res) => {
-        expect(res).toEqual(agent);
+      agent.validPassword('secret', (err, res) => {
+        expect(res).toEqual(true);
         done();
-      }, agent);
+      });
     });
 
     it('returns false if the password is not a match', (done) => {
-      Agent.validPassword('wrongsecretpassword', agent.password, (err, res) => {
+      agent.validPassword('wrongsecretpassword', (err, res) => {
         expect(res).toBe(false);
         done();
-      }, agent);
+      });
     });
   });
+
 
 });

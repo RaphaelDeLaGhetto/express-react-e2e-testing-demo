@@ -1,13 +1,20 @@
 "use strict";
 
+require('dotenv').config()
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const models = require('./models');
 
 /**
  * Set static directory
  */
 app.use(express.static('public'));
+
+/**
+ * Parse JSON
+ */
+app.use(bodyParser.json());
 
 /**
  * Set up JWT middleware
@@ -18,7 +25,7 @@ const JwtStrategy = require('passport-jwt').Strategy,
 
 let opts = {
   jwtFromRequest: ExtractJwt.fromBodyField('token'),
-  secretOrKey: 's0mthingSup3rsecret'
+  secretOrKey: process.env.SECRET_KEY
 }
 
 passport.use(new JwtStrategy(opts, (jwt_payload, done) => {

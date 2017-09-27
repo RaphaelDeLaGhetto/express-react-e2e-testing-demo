@@ -63,15 +63,14 @@ module.exports = function(mongoose) {
   /**
    * Check to see if the supplied password is valid
    */
-  AgentSchema.statics.validPassword = function(password, hash, done, agent) {
-    bcrypt.compare(password, hash, (err, isMatch) => {
-      if (err) console.log(err);
-      if (isMatch) {
-        return done(null, agent);
-      } else {
-        return done(null, false);
+  AgentSchema.methods.validPassword = function(password, done) {
+    bcrypt.compare(password, this.password, (err, isMatch) => {
+      if (err) {
+        return done(err);
       }
+      done(null, isMatch);
     });
   };
+
   return AgentSchema;
 };
