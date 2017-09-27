@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "jasmine": "^2.8.0",
+    "pow-mongoose-fixtures": "^0.3.0",
     "zombie": "^5.0.7"
   }
 }
