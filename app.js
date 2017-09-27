@@ -11,8 +11,9 @@ app.use(express.static('public'));
 /**
  * Routes
  */
-//const index = require('./routes/auth');
+const agent = require('./routes/agent');
 
+app.use('/agent', agent);
 
 let port = process.env.NODE_ENV === 'production' ? 3000 : 3001;
 app.listen(port, '0.0.0.0', () => {
