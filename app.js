@@ -4,9 +4,37 @@ const express = require('express');
 const app = express();
 const models = require('./models');
 
-
-// Set static directory
+/**
+ * Set static directory
+ */
 app.use(express.static('public'));
+
+/**
+ * Set up JWT middleware
+ */
+const passport = require('passport');
+const JwtStrategy = require('passport-jwt').Strategy,
+      ExtractJwt = require('passport-jwt').ExtractJwt;
+
+let opts = {
+  jwtFromRequest: ExtractJwt.fromBodyField('token'),
+  secretOrKey: 's0mthingSup3rsecret'
+}
+
+passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
+  models.Agent.findOne({ id: jwt_payload.sub }, (err, agent) => {
+    if (err) {
+      return done(err, false);
+    }
+    if (agent) {
+      return done(null, agent);
+    }
+    else {
+      return done(null, false);
+      // or you could create a new account 
+    }
+  });
+}));
 
 /**
  * Routes
